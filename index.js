@@ -14,16 +14,16 @@ app.get("/", (req, res) => {
 
 // socket setup
 
-var io = socket(server);
+// var io = socket(server);
 
-io.on("connection", function(socket) {
-  console.log(socket.id);
+// io.on("connection", function(socket) {
+//   console.log(socket.id);
 
-  socket.on("chat", data => {
-    io.sockets.emit("chat", data);
-  });
+//   socket.on("chat", data => {
+//     io.sockets.emit("chat", data);
+//   });
 
-  socket.on("typing", function(data) {
-    socket.broadcast.emit("typing", data.handle);
-  });
-});
+//   socket.on("typing", function(data) {
+//     socket.broadcast.emit("typing", data.handle);
+//   });
+// });

@@ -1,33 +1,33 @@
-// Make connection
+// // Make connection
 
-var socket = io.connect("http://localhost:4000");
+// var socket = io.connect("http://localhost:4000");
 
-// Query DOM
-var message = document.getElementById("message"),
-  handle = document.getElementById("handle"),
-  btn = document.getElementById("send"),
-  output = document.getElementById("output");
-feedback = document.querySelector("#feedback");
-//Emit events
+// // Query DOM
+// var message = document.getElementById("message"),
+//   handle = document.getElementById("handle"),
+//   btn = document.getElementById("send"),
+//   output = document.getElementById("output");
+// feedback = document.querySelector("#feedback");
+// //Emit events
 
-btn.addEventListener("click", function() {
-  socket.emit("chat", {
-    message: message.value,
-    handle: handle.value
-  });
-});
+// btn.addEventListener("click", function() {
+//   socket.emit("chat", {
+//     message: message.value,
+//     handle: handle.value
+//   });
+// });
 
-message.addEventListener("keypress", function() {
-  socket.emit("typing", {
-    handle: handle.value
-  });
-});
+// message.addEventListener("keypress", function() {
+//   socket.emit("typing", {
+//     handle: handle.value
+//   });
+// });
 
-socket.on("chat", function(data) {
-  feedback.innerHTML = "";
-  output.innerHTML += `${data.handle} : ${data.message}<br>`;
-});
+// socket.on("chat", function(data) {
+//   feedback.innerHTML = "";
+//   output.innerHTML += `${data.handle} : ${data.message}<br>`;
+// });
 
-socket.on("typing", function(data) {
-  feedback.innerHTML = `${data} is typing ..`;
-});
+// socket.on("typing", function(data) {
+//   feedback.innerHTML = `${data} is typing ..`;
+// });
